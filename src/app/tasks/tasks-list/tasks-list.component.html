@@ -3,9 +3,9 @@
   <p>
     <select (change)="onChangeTasksFilter(filter.value)" #filter>
       <option value="all">All</option>
-      <option value="open">Open</option>
-      <option value="in-progress">In-Progress</option>
-      <option value="done">Completed</option>
+      @for(taskStatus of taskStatusOptions; track taskStatus.taskStatus) {
+      <option [value]="taskStatus.value">{{ taskStatus.text }}</option>
+      }
     </select>
   </p>
 </header>
